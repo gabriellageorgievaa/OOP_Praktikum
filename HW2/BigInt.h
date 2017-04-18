@@ -18,7 +18,7 @@ class BigInt
         BigInt& operator-(const BigInt& rhs);
         BigInt& operator+=(const BigInt& rhs);
         BigInt& operator-=(const BigInt& rhs);
-        BigInt& operator--(const BigInt& rhs);
+        //BigInt& operator--(const BigInt& rhs);
 
         char* Getnumber();
         void Setnumber(char* val);
@@ -27,8 +27,8 @@ class BigInt
         char Getsign();
         void Setsign(char val);
 
-        friend BigInt std::ostream& operator<<(std::ostream output, const BigInt& num);
-        friend BigInt std::istream& operator>>(std::istream input, const BigInt& num);
+        friend std::ostream& operator<<(std::ostream& output, const BigInt& num);
+        friend std::istream& operator>>(std::istream& input, const BigInt& num);
 
 
     protected:

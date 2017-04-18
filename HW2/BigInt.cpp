@@ -43,6 +43,33 @@ BigInt& BigInt::operator=(const BigInt& rhs)
     return *this;
 }
 
+BigInt& BigInt::operator+(const BigInt& rhs)
+{
+    return *this;
+}
+
+BigInt& BigInt::operator-(const BigInt& rhs)
+{
+
+    return *this;
+}
+
+BigInt& BigInt::operator+=(const BigInt& rhs)
+{
+
+    return *this;
+}
+
+//BigInt& BigInt::operator-=(const BigInt& rhs)
+//{
+//  return *this;
+//}
+//
+//BigInt& BigInt::operator--(const BigInt& rhs)
+//{
+//  return * this;
+//}
+
 char* BigInt::Getnumber()
 {
     return number;
@@ -79,6 +106,14 @@ void BigInt::Setlength(size_t val)
 
 char BigInt::Getsign()
 {
+    if(number[0] == '-')
+    {
+        sign = '-';
+    }
+    else
+    {
+        sign = '+';
+    }
     return sign;
 }
 
@@ -86,3 +121,25 @@ void BigInt::Setsign(char val)
 {
     sign = val;
 }
+
+std::ostream &operator<<(std::ostream& output, const BigInt& obj)
+{
+    if (obj.sign == '-')
+    {
+        output << '-';
+    }
+    else
+    {
+        output << '+';
+    }
+    output << obj.number;
+    return output;
+}
+
+std::istream &operator>>(std::istream& input, const BigInt& obj)
+{
+    input >> obj.number;
+    return input;
+
+}
+
